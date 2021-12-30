@@ -1,18 +1,11 @@
-package com.company;
+public class LuhnValidatorV2 {
 
-public class Main {
-
-    public static void main(String[] args) {
-	    String test = "59";
-
-        System.out.println(isValid(test));
-    }
-
-
-    static boolean isValid(String candidate) {
+    boolean isValid(String candidate) {
 
         //remove everything from string except numbers
-        candidate = candidate.replaceAll("[^0-9]", "");
+        candidate = candidate.replaceAll(" ", "");
+        candidate = candidate.replaceAll("[^0-9]", "#");
+        if (candidate.contains("#") || candidate.length() < 2) return false;
 
         //create int array and char array
         int[] intArr = new int[candidate.length()];
@@ -35,4 +28,5 @@ public class Main {
 
 
     }
+
 }
